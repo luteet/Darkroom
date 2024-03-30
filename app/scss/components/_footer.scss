@@ -1,0 +1,50 @@
+.footer {
+	flex: 0 0 auto;
+	padding-top: 1rem; padding-bottom: 1rem;
+
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem 5rem;
+
+	&__about {
+		color: var(--accent-active);
+
+		font-size: 0.875rem;
+		@include _992 {
+			font-size: 1rem;
+		}
+	}
+
+	&__social {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 1rem;
+
+		@include _992 {
+			gap: 1rem 1.5rem;
+		}
+
+		a {
+			text-decoration: underline;
+			text-underline-offset: 0.1875rem;
+			color: var(--accent-active);
+
+			font-size: 0.875rem;
+
+			@include _992 {
+				font-size: 1rem;
+			}
+
+			@media (any-hover: hover) {
+				transition: color .2s ease;
+				&:hover {
+					color: var(--white);
+				}
+			
+				&:active {
+					color: var(--white);
+				}
+			}
+		}
+	}
+}

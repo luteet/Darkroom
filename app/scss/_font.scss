@@ -1,0 +1,68 @@
+
+@font-face {
+	@include font-include('SF Mono', 400, swap, normal, 'SFMono-Regular');
+}
+
+@font-face {
+	@include font-include('SF Mono', 500, swap, normal, 'SFMono-Medium');
+}
+
+@font-face {
+	@include font-include('SF Mono', 500, swap, italic, 'SFMono-MediumItalic');
+}
+
+@font-face {
+	@include font-include('SF Mono', 700, swap, normal, 'SFMono-Bold');
+}
+
+@font-face {
+	@include font-include('SF Pro', 400, swap, normal, 'SFProDisplay-Regular');
+}
+
+@font-face {
+	@include font-include('SF Pro', 500, swap, normal, 'SFProDisplay-Medium');
+}
+
+.main-title {
+	font-family: var(--title-font);
+	font-weight: 700;
+	line-height: 115%;
+
+	font-size: 1.875rem;
+
+	@include _768 {
+		font-size: 2.5rem;
+	}
+
+	@include _992 {
+		font-size: 3.125rem;
+	}
+}
+
+.title {
+	
+	font-family: var(--title-font);
+	font-weight: 700;
+
+	font-size: 1.125rem;
+
+	@include _768 {
+		font-size: 1.5rem;
+	}
+
+	@include _992 {
+		font-size: 1.875rem;
+	}
+
+}
+
+.section-title {
+
+	font-family: var(--title-font);
+	font-weight: 700;
+
+}
+
+.txt-center {
+	text-align: center;
+}

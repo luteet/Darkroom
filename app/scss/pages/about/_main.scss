@@ -1,0 +1,124 @@
+.about {
+
+	padding-top: calc(var(--height-header) + 3rem);
+	padding-bottom: 3rem;
+
+	@include _992 {
+		padding-top: calc(var(--height-header) + 8rem);
+		padding-bottom: 8rem;
+	}
+
+	&::before {
+		content: "";
+		position: fixed;
+		left: 0; top: 0;
+		width: 100%; height: var(--height-header,5.625rem);
+		background: var(--white);
+	}
+
+	// .about__content
+
+	&__content {
+		max-width: 60rem;
+
+		font-size: 1rem;
+
+		@include _550 {
+			font-size: 1.5rem;
+		}
+
+		@include _992 {
+			font-size: 2rem;
+		}
+
+		line-height: 125%;
+
+		h1 {
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		> *:not(:first-child) {
+			padding-top: 1.25rem;
+		}
+	}
+
+	// .about__feedback
+
+	&__feedback {
+		padding-top: 2.5rem;
+		max-width: 38.375rem;
+
+		@include _992 {
+			padding-top: 5rem;
+		}
+
+		display: grid;
+		@include _550 {
+			grid-template-columns: auto 9.375rem;
+		}
+
+		/* > span {
+			
+		} */
+
+		button {
+			background: #292622;
+			padding: 1rem;
+
+			font-family: 'SF Pro', sans-serif;
+			font-weight: 510;
+			font-size: 0.75rem;
+			line-height: 116.666667%;
+			letter-spacing: 0.05em;
+			color: var(--white);
+
+			@media (any-hover: hover) {
+
+				transition: background .2s ease;
+
+				&:hover {
+					background: #373532;
+				}
+			
+				&:active {
+					background: #1e1b18;
+				}
+			}
+		}
+
+		input {
+			padding: 1rem;
+			background: #F2EFEB;
+
+			font-family: "SF Pro", sans-serif;
+			font-size: 0.875rem;
+			font-weight: 510;
+			line-height: 129%;
+			letter-spacing: 0.05em;
+			color: var(--accent-active);
+
+			transition: background .2s ease;
+
+			&.is-error {
+				background: #F06969;
+			}
+
+			&::placeholder {
+				color: #807870;
+			}
+		}
+
+		&_message {
+			font-family: 'SF Pro', sans-serif;
+			font-weight: 510;
+			font-size: 0.75rem;
+			letter-spacing: 0.05em;
+			line-height: 116.666667%;
+			color: #807870;
+
+			display: block;
+			padding: 0.5rem 1rem;
+		}
+	}
+}

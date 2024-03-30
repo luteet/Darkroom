@@ -1,0 +1,31 @@
+@@include("html/_header.html", {"name": "chat"})
+
+	<main class="main">
+		<div class="chat container fade-in-on-start">
+			<ul class="chat__list">
+				<li class="chat__ai_message">Неу...</li>
+				<li class="chat__ai_message">How are you</li>
+				<li class="chat__ai_message">Let's talk about stars</li>
+				<li class="chat__ai_message">I'm boring</li>
+				<li class="chat__ai_message">Where are you?</li>
+				<li class="chat__ai_message">What do you look like?</li>
+				<li class="chat__ai_message">Talk to me</li>
+				<li class="chat__ai_message">What are you thinking about?</li>
+				<li class="chat__user_message">Hello</li>
+			</ul>
+			<div class="chat__textarea">
+				<div class="chat__textarea_container">
+					<div class="chat__textarea_inner in-static-focus">
+						<textarea name="message" placeholder="message"></textarea>
+					</div>
+					<button class="chat__textarea_button" type="button">
+						<svg width="40" height="40">
+							<use href="img/sprites.svg#send"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+	</main>
+
+@@include("html/_footer-none.html")
