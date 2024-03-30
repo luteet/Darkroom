@@ -26,8 +26,6 @@
 		
 
 		&_inner {
-			/* margin: 1rem 0 1rem;
-			padding: 1rem 0 1rem; */
 			margin: 0 0 calc(100vh - 100svh);
 			@include _992 {
 				margin: 1rem 0;
@@ -36,16 +34,6 @@
 	}
 
 	&__inner {
-		//grid-area: 1/1;
-		//padding-top: 100vh;
-		//padding-top: calc(var(--height-header) + 100vh);
-		/* margin-top: 100vh;
-		min-height: 100vh; */
-		//padding-bottom: 50vh;
-		//padding-bottom: calc(100vh + var(--height-header));
-		//padding-bottom: 100vh;
-
-		
 		min-height: 100vh;
 		display: grid;
 	}
@@ -53,8 +41,6 @@
 	&__block {
 		min-height: 100vh;
 		grid-area: 1/1;
-
-		//cursor: text;
 
 		&:nth-child(1) {
 			pointer-events: none;
@@ -66,17 +52,6 @@
 			z-index: 1;
 			
 		}
-
-		/* &:nth-child(1) {
-
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-		} */
-
-		/* &:nth-child(2) {
-			padding-top: 90vh;
-		} */
 	}
 
 	// .index__title
@@ -171,7 +146,7 @@
 		min-height: 10vh;
 		margin-top: 10vh;
 		@include _992 {
-			margin-top: 0;
+			margin-top: 10vh;
 		}
 	}
 

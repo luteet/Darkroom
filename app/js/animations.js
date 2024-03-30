@@ -172,8 +172,8 @@ export default function animations() {
 				trigger: document.querySelector(".index__about"),
 				scrub: 1,
 				
-				start: `top center`,
-				end: `bottom center`,
+				start: `top 75%`,
+				end: `bottom 75%`,
 				scroller: scrollWrapper ? scrollWrapper : document.body,
 	
 				animation: anim,
