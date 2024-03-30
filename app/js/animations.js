@@ -184,13 +184,13 @@ export default function animations() {
 		const indexBlocks = document.querySelectorAll(".index__block");
 		if(indexBlocks[0]) {
 	
-		if(indexTimeline) indexTimeline.kill();
+			if(indexTimeline) indexTimeline.kill();
 		
 			indexTimeline = gsap.timeline({
 				scrollTrigger: {
 					trigger: indexBlocks[0],
 					start: `top top`,
-					end: window.innerWidth >= 992 ? `+${window.innerHeight * 1.2} bottom` : `+${getCoords(document.querySelector(".index__about")).top*1.45} bottom`,
+					end: window.innerWidth >= 992 ? `+${window.innerHeight * 1.2} bottom` : `+${document.querySelector(".index__hero").offsetHeight*1.35} bottom`,
 					scroller: scrollWrapper ? scrollWrapper : document.body,
 					pin: true,
 					scrub: true,
