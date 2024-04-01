@@ -3,73 +3,75 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	<meta name="theme-color" content="#000">
-	<title>Document</title>
+	<title>Darkroom</title>
 	<link rel="stylesheet" href="css/style.min.css">
 </head>
 
 <body>
 	<div class="wrapper" data-barba="wrapper">
 		<div data-barba="container" data-barba-namespace="chat">
-			<header class="header container">
-				<div class="header__logo">
-					<a href="index.html" class="header__logo_text">
-						Darkroom
-					</a>
-				</div>
-				<nav class="header__nav">
-					<div class="header__nav_body">
-						<ul class="header__nav_list">
-							<li>
-								<a href="chat.html">
-									Chat
-								</a>
-							</li>
-							<li>
-								<a href="how-it-works.html">
-									How it works
-								</a>
-							</li>
-						</ul>
+			<div class="inner fade-in-on-start">
+				<header class="header container">
+					<div class="header__logo">
+						<a href="index.html" class="header__logo_text">
+							Darkroom
+						</a>
 					</div>
-				</nav>
-				<button class="header__burger" type="button" aria-label="Menu">
-					<span></span>
-					<span></span>
-					<span></span>
-				</button>
-			</header>
+					<nav class="header__nav">
+						<div class="header__nav_body">
+							<ul class="header__nav_list">
+								<li>
+									<a href="chat.html" class="is-current">
+										Chat
+									</a>
+								</li>
+								<li>
+									<a href="how-it-works.html">
+										How it works
+									</a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+					<button class="header__burger" type="button" aria-label="Menu">
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+				</header>
 
-			<main class="main">
-				<div class="chat container fade-in-on-start">
-					<ul class="chat__list">
-						<li class="chat__ai_message">Неу...</li>
-						<li class="chat__ai_message">How are you</li>
-						<li class="chat__ai_message">Let's talk about stars</li>
-						<li class="chat__ai_message">I'm boring</li>
-						<li class="chat__ai_message">Where are you?</li>
-						<li class="chat__ai_message">What do you look like?</li>
-						<li class="chat__ai_message">Talk to me</li>
-						<li class="chat__ai_message">What are you thinking about?</li>
-						<li class="chat__user_message">Hello</li>
-					</ul>
-					<div class="chat__textarea">
-						<div class="chat__textarea_container">
-							<div class="chat__textarea_inner in-static-focus">
-								<textarea name="message" placeholder="message"></textarea>
+				<main class="main">
+					<div class="chat container">
+						<ul class="chat__list">
+							<li class="chat__ai_message">Неу...</li>
+							<li class="chat__ai_message">How are you</li>
+							<li class="chat__ai_message">Let's talk about stars</li>
+							<li class="chat__ai_message">I'm boring</li>
+							<li class="chat__ai_message">Where are you?</li>
+							<li class="chat__ai_message">What do you look like?</li>
+							<li class="chat__ai_message">Talk to me</li>
+							<li class="chat__ai_message">What are you thinking about?</li>
+							<li class="chat__user_message">Hello</li>
+						</ul>
+						<div class="chat__textarea">
+							<div class="chat__textarea_container">
+								<div class="chat__textarea_inner in-static-focus">
+									<textarea name="message" placeholder="message"></textarea>
+								</div>
+								<button class="chat__textarea_button" type="button">
+									<svg width="40" height="40">
+										<use href="img/sprites.svg#send"></use>
+									</svg>
+								</button>
 							</div>
-							<button class="chat__textarea_button" type="button">
-								<svg width="40" height="40">
-									<use href="img/sprites.svg#send"></use>
-								</svg>
-							</button>
 						</div>
 					</div>
-				</div>
-			</main>
+				</main>
 
 
+			</div>
 		</div>
 	</div>
 

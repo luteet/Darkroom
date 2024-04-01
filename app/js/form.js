@@ -28,7 +28,7 @@ export default function form(lenis=false, typedChatList=[]) {
 
 		textarea.addEventListener('input', function (event) {
 
-			textarea.value = textarea.value.replace(/\s+/g, '');
+			//textarea.value = textarea.value.replace(/\s+/g, '');
 			textarea.parentElement.dataset.value = textarea.value;
 			
 			textarea.closest(".index__chat_field").classList.remove("in-static-focus");
@@ -38,6 +38,7 @@ export default function form(lenis=false, typedChatList=[]) {
 		textarea.addEventListener('keydown', function (event) {
 
 			if(event.key == "Enter") {
+				event.preventDefault();
 				textarea.closest(".index__chat").querySelector(".index__chat_list").insertAdjacentHTML("beforeend", `<div class="index__chat_user_item">${textarea.value}</div>`);
 				textarea.value = "";
 				textarea.parentElement.dataset.value = "";
@@ -71,7 +72,9 @@ export default function form(lenis=false, typedChatList=[]) {
 
 		const list = textarea.closest(".chat").querySelector(".chat__list");
 
-		textarea.focus();
+		textarea.focus({
+			preventScroll: true
+		});
 
 		textarea.addEventListener("focus", () => {
 			textarea.closest(".chat__textarea_inner").classList.add("in-focus");
@@ -87,7 +90,7 @@ export default function form(lenis=false, typedChatList=[]) {
 		
 		textarea.addEventListener('input', function (event) {
 
-			textarea.value = textarea.value.replace(/\n+/g, '');
+			//textarea.value = textarea.value.replace(/\n/, '');
 			textarea.parentElement.dataset.value = textarea.value;
 
 			textarea.closest(".chat__textarea_inner").classList.remove("in-static-focus");
@@ -102,6 +105,8 @@ export default function form(lenis=false, typedChatList=[]) {
 
 		textarea.addEventListener('keydown', function (event) {
 			if(event.key == "Enter") {
+				event.preventDefault();
+
 				list.insertAdjacentHTML("beforeend", `<li class="chat__user_message">${textarea.value}</li>`);
 				textarea.value = "";
 				textarea.parentElement.dataset.value = "";

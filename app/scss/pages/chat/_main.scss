@@ -103,7 +103,6 @@
 			}
 
 			max-width: 60rem;
-
 			
 		}
 
@@ -112,15 +111,16 @@
 	// .chat__textarea_inner
 
 	&__textarea_inner {
+		position: relative;
 
-		min-height: 7.8125rem;
+		min-height: 5.1875rem;
 		
 		@include _550 {
-			padding-right: 2rem;
+			//padding-right: 2rem;
 		}
 
 		@include _992 {
-			min-height: 10.625rem;
+			min-height: 8.125rem;
 		}
 
 		&.in-static-focus::after {
@@ -133,14 +133,14 @@
 
 		&[data-value]::before {
 			
-			padding: 3rem 1rem 3rem 0;
+			padding: 2rem 1rem 2rem 0;
 			content: attr(data-value) ' ';
 			visibility: hidden;
 			white-space: pre-wrap;
 			width: 100%; //max-width: calc(100vw - 0.9375rem);
 			//max-width: calc(100% - 2.5rem);
 			@include _550 {
-				max-width: calc(100% - 5.625rem);
+				//max-width: calc(100% - 5.625rem);
 				font-size: 1.5rem;
 			}
 			
@@ -155,8 +155,8 @@
 			line-height: 118.75%;
 
 			@include _992 {
-				font-size: 3rem;
-				padding: 3.25rem 2rem 3rem 0;
+				font-size: 2rem;
+				padding: 3rem 0 2.75rem 0;
 			}
 			
 			//hanging-punctuation: first last;
@@ -166,12 +166,12 @@
 			content: "";
 			position: absolute;
 			left: 0; top: 50%;
-			translate: 0 -65%;
+			translate: 0 -50%;
 			
-			width: 0.125rem; height: 2.5rem;
+			width: 0.125rem; height: 1.875rem;
 			@include _992 {
-				width: 0.25rem; height: 5rem;
-				translate: 0 -50%;
+				width: 0.25rem; height: 3rem;
+				translate: 0 -42.5%;
 			}
 
 			opacity: 0;
@@ -187,13 +187,13 @@
 		textarea {
 			
 			width: 100%;
-			padding: 3rem 1rem 3rem 0;
+			padding: 2rem 1rem 2rem 0;
 
 			position: absolute;
 			left: 0; top: 0;
 			width: 100%; min-height: 100%; height: 100%;
 			//max-width: calc(100vw - 15px);
-			max-width: calc(100% - 2.5rem);
+			//max-width: calc(100% - 2.5rem);
 			z-index: 2;
 
 			overflow: hidden;
@@ -202,15 +202,15 @@
 			//opacity: 1;
 
 			@include _550 {
-				max-width: calc(100% - 5.625rem);
+				//max-width: calc(100% - 5.625rem);
 				font-size: 1.5rem;
 			}
 
 			font-size: 1rem;
 			line-height: 118.75%;
 			@include _992 {
-				font-size: 3rem;
-				padding: 3.25rem 2rem 3rem 0;
+				font-size: 2rem;
+				padding: 3rem 0 2.75rem 0;
 			}
 			
 			//hanging-punctuation: first last;

@@ -34,6 +34,18 @@ html {
 	min-height: 100%;
 	min-width: 320px;
 
+	scrollbar-color: var(--accent-active) var(--black);
+	::-webkit-scrollbar {
+		background: var(--black);
+		transition: background .2s ease;
+	}
+	::-webkit-scrollbar-thumb {
+		background: var(--accent-active);
+		border-radius: 0.375rem;
+		border: 0.25rem solid var(--black);
+		transition: background .2s ease, border-color .2s ease;
+	}
+
 	@media (min-width: 1440px) {
 		font-size: 1.058201vw;
 	}
@@ -58,7 +70,6 @@ body {
 	transition: background .3s ease;
 
 	@include _992 {
-		overflow: hidden;
 		--height-header: 4.375rem;
 	}
 
@@ -72,12 +83,24 @@ body {
 	opacity: 0;
 }
 
-body.light-mode {
+html.light-mode {
+	/* scrollbar-color: var(--accent) var(--white);
+	::-webkit-scrollbar {
+		background: var(--white);
+	}
+	::-webkit-scrollbar-thumb {
+		background: var(--accent);
+		border-radius: 0.375rem;
+		border: 0.25rem solid var(--white);
+	} */
+}
+
+html.light-mode body {
 	background: var(--white);
 	color: var(--text-color);
 }
 
-body.light-mode .header__nav a {
+html.light-mode .header__nav a {
 	@media (any-hover: hover) {
 		&:active {
 			color: var(--text-color);
@@ -85,7 +108,7 @@ body.light-mode .header__nav a {
 	}
 }
 
-body.light-mode .footer__social a {
+html.light-mode .footer__social a {
 	@media (any-hover: hover) {
 		&:active {
 			color: var(--text-color);
@@ -105,15 +128,15 @@ section {
 	z-index: 2;
 }
 
+.inner {
+	flex: 1 1;
+
+	display: flex;
+	flex-direction: column;
+}
+
 .wrapper {
 	flex: 1 1 auto;
-
-	@include _992 {
-		height: 100%;
-		overflow-y: auto;
-
-		flex: none;
-	}
 
 	opacity: 0;
 	

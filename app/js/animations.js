@@ -42,18 +42,13 @@ export default function animations() {
 
 								if(firstInit) {
 									firstInit = false;
-									chat.querySelector("textarea").focus();
+									chat.querySelector("textarea").focus({
+										preventScroll: true
+									});
 									
 									let delay = 0;
 									document.querySelectorAll(".index__chat_item").forEach(item => {
 										delay += Number(item.dataset.delay);
-										/* gsap.to(item, {
-											height: item.querySelector("span").offsetHeight + "px",
-											delay: delay,
-											onComplete: () => {
-												item.classList.add("is-visible");
-											},
-										}) */
 										
 										typedChatList.push(new Typed(item.querySelector("span"), {
 											strings: [item.dataset.text],
@@ -63,7 +58,7 @@ export default function animations() {
 												item.classList.remove("is-active");
 											},
 											preStringTyped: (self) => {
-												//console.log("self")
+												
 												item.classList.add("is-active");
 												item.classList.add("is-visible");
 		
@@ -82,8 +77,6 @@ export default function animations() {
 									})
 
 								}
-		
-								//io.disconnect(chat);
 								
 							} else {
 								chat.closest(".index__chat").classList.remove("in-view");
@@ -104,7 +97,7 @@ export default function animations() {
 			gsap.to(".fade-in-on-start", {
 				opacity: 1,
 				duration: 2,
-				delay: 1,
+				delay: 0.4,
 				ease: "power3.out"
 			})
 		}
@@ -126,7 +119,7 @@ export default function animations() {
 			startTimeline.to(".index__hero", {
 				transform: "translate3d(0,0,0)",
 				duration: 2,
-				delay: 1,
+				delay: 0.4,
 				ease: "power3.out"
 			})
 
@@ -151,16 +144,14 @@ export default function animations() {
 
 		if(document.querySelector(".index__about p")) {
 
-			const text = new SplitType('.index__about p', { types: 'lines' });
+			const text = new SplitType('.index__about p', { types: 'words' });
 			
-			gsap.set(text.lines, {
-				"--progress": "-20%",
-				"--progress-2": "0%",
+			gsap.set(text.words, {
+				opacity: 0.15,
 			})
 	
-			const anim = gsap.to(text.lines, {
-				"--progress": "100%",
-				"--progress-2": "120%",
+			const anim = gsap.to(text.words, {
+				opacity: 1,
 				stagger: 1,
 				duration: 1.5,
 				immediateRender: !1, 
@@ -172,8 +163,8 @@ export default function animations() {
 				trigger: document.querySelector(".index__about"),
 				scrub: 1,
 				
-				start: `top 75%`,
-				end: `bottom 75%`,
+				start: `top bottom`,
+				end: `bottom center`,
 				scroller: scrollWrapper ? scrollWrapper : document.body,
 	
 				animation: anim,
@@ -190,21 +181,30 @@ export default function animations() {
 				scrollTrigger: {
 					trigger: indexBlocks[0],
 					start: `top top`,
-					end: window.innerWidth >= 992 ? `+${window.innerHeight * 1.2} bottom` : `+${document.querySelector(".index__hero").offsetHeight*1.35} bottom`,
+					end: `center top`,
 					scroller: scrollWrapper ? scrollWrapper : document.body,
-					pin: true,
 					scrub: true,
+					pin: true,
+					//markers: true,
 					//pinSpacing: false,
 					//markers: true,
 				}
 			})
 		
 			indexTimeline.pause();
+
+			indexTimeline.fromTo(".index__hero_inner", {
+				//height: window.innerHeight/1.1 + "px",
+				transform: "translate3d(0,0%,0.1px)",
+			},
+			{
+				transform: `translate3d(0,-60%,0.1px)`,
+			})
 		
 			if(indexTimeline2) indexTimeline2.kill();
 			indexTimeline2 = gsap.timeline({
 				scrollTrigger: {
-					trigger: indexBlocks[1].querySelector(".index__about"),
+					trigger: ".index__inner",
 					start: `top top`,
 					end: `bottom top`,
 					scroller: scrollWrapper ? scrollWrapper : document.body,
@@ -217,7 +217,7 @@ export default function animations() {
 			indexTimeline2.pause();
 		
 			const background = document.querySelectorAll(".main-background div");
-		
+
 			indexTimeline2.to(background[0], {
 				opacity: "0",
 				duration: 2,
@@ -247,15 +247,9 @@ export default function animations() {
 
 		if(window.innerWidth >= 992) {
 			
-			new SimpleBar(document.querySelector(".wrapper"), {
-				//wrapper: document.querySelector(".wrapper"),
-				//autoHide: false,
-			})
-	
-			scrollWrapper = document.querySelector(".simplebar-content-wrapper");
-			scrollContent = document.querySelector(".simplebar-content");
+			
 
-			lenis = new Lenis({
+			/* lenis = new Lenis({
 				wrapper: scrollWrapper,
 				content: scrollContent,
 			});
@@ -267,7 +261,7 @@ export default function animations() {
 	
 			lenis.on('scroll', ScrollTrigger.update)
 			
-			requestAnimationFrame(raf)
+			requestAnimationFrame(raf) */
 
 			window.removeEventListener("resize", resize);
 			scrollAnimation();
@@ -311,17 +305,19 @@ export default function animations() {
 			}
 
 			if(data.next.container.querySelector(".main").hasAttribute("data-light")) {
-				document.body.classList.add("light-mode")
+				document.documentElement.classList.add("light-mode")
 			} else {
-				document.body.classList.remove("light-mode");
+				document.documentElement.classList.remove("light-mode");
 			}
 
-			if(window.innerWidth >= 992) {
-				staticAnimations();
-				form(lenis, typedChatList);
-			}
+			staticAnimations();
+			form(lenis, typedChatList);
 
-			return gsap.from(data.next.container, {
+			window.removeEventListener("resize", resize);
+			scrollAnimation();
+			window.addEventListener("resize", resize)
+
+			/* return gsap.from(data.next.container, {
 				opacity: 0,
 				delay: 1,
 				onComplete: () => {
@@ -332,8 +328,10 @@ export default function animations() {
 						staticAnimations();
 						form(lenis, typedChatList);
 					}
+					staticAnimations();
+					form(lenis, typedChatList);
 				}
-			});
+			}); */
 		  }
 		}]
 	});
